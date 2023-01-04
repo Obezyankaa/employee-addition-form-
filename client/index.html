@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="icon" href="./img/logo.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/style.css">
+
+    <link rel="shortcut icon" href="#">
+    <title>skb</title>
+</head>
+
+<body>
+    <header class="header">
+        <div class="container">
+            <h1>skb</h1>
+            <div class="header-wrapper">
+                <img class="header-img" src="img/logo.png" alt="">
+                <input class="header-input" type="text" placeholder="Введите запрос">
+                <div class="header-search"></div>
+            </div>
+
+        </div>
+    </header>
+
+    <section class="clients">
+        <div class="container">
+            <h2 class="table-clients-header">Клиенты</h2>
+            <div class="wrapper-table">
+                <table class="table-clients" id="sortable">
+                    <thead>
+                        <tr>
+                            <th scope="col" data-name='id'>
+                                <div class=" id th-title-id">
+                                    <div class="table-clients-id">ID</div>
+                                    <div class="table-clients-id-img table-img-id"></div>
+                                </div>
+                            </th>
+                            <th scope="col" data-name='fio'>
+                                <div class="fio th-title">
+                                    <div class="table-clients-fio">Фамилия Имя Отчество</div>
+                                    <div class="table-clients-fio-img table-img"></div>
+                                </div>
+                            </th>
+                            <th scope="col" data-name='time-creat'>
+                                <div class="time-creation th-title">
+                                    <div class="table-time-creation">Дата и время создания</div>
+                                    <div class="table-time-creation-img table-img"></div>
+                                </div>
+                            </th>
+                            <th scope="col" data-name='time-update'>
+                                <div class="time-change th-title">
+                                    <div class="table-time-change">Последние изменения</div>
+                                    <div class="table-time-change-img table-img"></div>
+                                </div>
+                            </th>
+                            <th scope="col" class="table-contact" data-name='contacts'>Контакты </th>
+                            <th scope="col" class="table-change">Действия</th>
+                            <th scope="col" class="table-delete"></th>
+                        </tr>
+                    </thead>
+                    <tbody class="table-body" id="table-body">
+                    </tbody>
+                </table>
+            </div>
+            <button type='button' class="table-btn-add"><svg class="table-btn-add-img" width="23" height="16"
+                    viewBox="0 0 23 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path class="table-btn-add-svg"
+                        d="M14.5 8C16.71 8 18.5 6.21 18.5 4C18.5 1.79 16.71 0 14.5 0C12.29 0 10.5 1.79 10.5 4C10.5 6.21 12.29 8 14.5 8ZM5.5 6V3H3.5V6H0.5V8H3.5V11H5.5V8H8.5V6H5.5ZM14.5 10C11.83 10 6.5 11.34 6.5 14V16H22.5V14C22.5 11.34 17.17 10 14.5 10Z"
+                        fill="#9873FF" />
+                </svg> Добавить клиента</button>
+
+        </div>
+    </section>
+
+<div class="overlay" id="overlay-modal"></div>
+
+    <section class="newclient modal">
+        <div class="newclient-wrapper wrapper">
+            <button class="newclient-menu-close close"></button>
+            <div class="wrapper-header">
+                <h3 class="newclient-header title"></h3>
+                <span class="change-id"></span>
+                <span class="card-id"></span>
+            </div>
+            <form class="newclient-form contact-form">
+                <div class="newclient-input-wrapper input-wrapper input-wrapper-surname">
+                    <input class="newclient-surname surname newclient-input" type="text" id="surname" required='false'>
+                    <label class="newclient-placeholder placeholder" for="surname">Фамилия<span
+                            class="star">*</span></label>
+                </div>
+                <div class="newclient-input-wrapper input-wrapper input-wrapper-name">
+                    <input class="newclient-name name newclient-input" type="text" id="name" required='false'>
+                    <label class="newclient-placeholder placeholder" for="name">Имя<span class="star">*</span></label>
+                </div>
+
+                <div class="newclient-input-wrapper input-wrapper input-wrapper-lastname">
+                    <input class="newclient-lastname lastname newclient-input" type="text" id="lastname"
+                        required="false">
+                    <label class="newclient-placeholder placeholder" for="lastname">Отчество</label>
+                </div>
+                <div class="save-client">
+                </div>
+                <div class="newclient-btn-add-wrapper add-wrapper" tabindex="0">
+                    <div class="img-add"></div>
+                    <button class="newclient-btn-add btn-add">Добавить контакт
+                    </button>
+                </div>
+                <div class="check-quantity new-check-quantity"></div>
+                <button class="newclient-btn-save btn">Сохранить
+                </button>
+                <button class="chacgeclient-btn-save btn">Сохранить
+                </button>
+                <button type="button" class="client-btn-cancel btn-cancel">Отмена
+                </button>
+                <button type="button" class="newclient-btn-delete btn-cancel">Удалить клиента
+                </button>
+            </form>
+        </div>
+    </section>
+    <section class="deleteclient-modal modal">
+        <div class="deleteclient-wrapper wrapper">
+            <button class="deleteclient-menu-close close"></button>
+            <h3 class="deleteclient-header">Удалить клиента</h3>
+            <p class="deleteclient-text">Вы действительно хотите удалить данного клиента?</p>
+            <button class="deleteclient-btn btn">Удалить
+            </button>
+            <button class="client-btn-cancel btn-cancel">Отмена
+            </button>
+        </div>
+    </section>
+
+    <section class="errors modal">
+        <div class=" wrapper">
+            <button class="deleteclient-menu-close close"></button>
+            <div class="errors-number"></div>
+            <div class="errors-body"></div>
+        </div>
+    </section>
+
+    <script src="JS/index.js" type="module"></script>
+</body>
+
+</html>
